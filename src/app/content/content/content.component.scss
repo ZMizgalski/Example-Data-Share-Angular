@@ -2,6 +2,13 @@
     height: 100%;
 }
 
+.td--ellipsis {
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 ::ng-deep mat-paginator {
     padding: 10px;
 

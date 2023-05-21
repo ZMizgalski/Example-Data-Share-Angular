@@ -1,3 +1,10 @@
+.td--ellipsis {
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 ::ng-deep mat-paginator {
     margin-top: auto;
     padding: 10px;

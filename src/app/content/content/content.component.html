@@ -23,7 +23,7 @@
     <table mat-table matSort [dataSource]="tableData">
         <ng-container matColumnDef="File Name">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>File Name</th>
-            <td mat-cell *matCellDef="let row">{{row.fileName}}</td>
+            <td class="td--ellipsis" mat-cell *matCellDef="let row">{{row.fileName}}</td>
         </ng-container>
 
         <ng-container matColumnDef="Action">
