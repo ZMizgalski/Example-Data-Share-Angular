@@ -1,27 +1,55 @@
-# ExampleDataShareAngular
+# Example-Data-Share-Angular
+> Basic website with file upload and authorization made with Angular material, RxJS, scss
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.4.
+## Table of Contents
+* [General Info](#general-information)
+* [Technologies Used](#technologies-used)
+* [Features](#features)
+* [Setup](#setup)
+* [Usage](#usage)
+* [Project Status](#project-status)
+* [Room for Improvement](#room-for-improvement)
+* [Contact](#contact)
+* [License](#license)
 
-## Development server
+## General Information
+- This project is a sample application that can be used by users to upload and download files, as well as log in to an administrator, user account to add new members to the platform or change the description about themselves, and share files for download.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Technologies Used
+- JWT tokens
+- RxJS
+- Scss
+- Sass
+- Angular Material
+- Angular
 
-## Code scaffolding
+## Features
+List the ready features here:
+- File upload
+- File downlaod
+- User Registration/Login
+- Ability to add new users
+- Responsive Design
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Setup
+- `npm i`
+- `ng serve --open`
 
-## Build
+## Usage
+1. Create a folder named you like.
+2. Inside your folder, open console and paste: `git clone https://github.com/ZMizgalski/Example-Data-Share-Angular.git`
+3. Then you are ready to go just open it in any Editor. (I prefer Intellij Idea Community) [Download here](https://www.jetbrains.com/idea/download/#section=windows)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Project Status
+Project is:  _complete_ .
 
-## Running unit tests
+## Room for Improvement
+- Security
+- Design
+- MySQL (Optional)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Contact
+Created by [@zmizgalski](https://zmizgalski.github.io/) - feel free to contact me!
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## License
+This project is open source and available under the [... License]().
