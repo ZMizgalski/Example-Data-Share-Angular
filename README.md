@@ -3,6 +3,7 @@
 
 ## Table of Contents
 * [General Info](#general-information)
+* [Screenshots](#screenshots)
 * [Technologies Used](#technologies-used)
 * [Features](#features)
 * [Setup](#setup)
@@ -14,6 +15,23 @@
 
 ## General Information
 - This project is a sample application that can be used by users to upload and download files, as well as log in to an administrator, user account to add new members to the platform or change the description about themselves, and share files for download.
+
+## Screenshots
+![img](https://github.com/ZMizgalski/Example-Data-Share-Angular/blob/main/imgs/1.png)
+![img](https://github.com/ZMizgalski/Example-Data-Share-Angular/blob/main/imgs/2.png)
+![img](https://github.com/ZMizgalski/Example-Data-Share-Angular/blob/main/imgs/3.png)
+![img](https://github.com/ZMizgalski/Example-Data-Share-Angular/blob/main/imgs/4.png)
+![img](https://github.com/ZMizgalski/Example-Data-Share-Angular/blob/main/imgs/5.png)
+![img](https://github.com/ZMizgalski/Example-Data-Share-Angular/blob/main/imgs/6.png)
+![img](https://github.com/ZMizgalski/Example-Data-Share-Angular/blob/main/imgs/7.png)
+![img](https://github.com/ZMizgalski/Example-Data-Share-Angular/blob/main/imgs/8.png)
+![img](https://github.com/ZMizgalski/Example-Data-Share-Angular/blob/main/imgs/9.png)
+![img](https://github.com/ZMizgalski/Example-Data-Share-Angular/blob/main/imgs/10.png)
+![img](https://github.com/ZMizgalski/Example-Data-Share-Angular/blob/main/imgs/11.png)
+![img](https://github.com/ZMizgalski/Example-Data-Share-Angular/blob/main/imgs/12.png)
+![img](https://github.com/ZMizgalski/Example-Data-Share-Angular/blob/main/imgs/13.png)
+![img](https://github.com/ZMizgalski/Example-Data-Share-Angular/blob/main/imgs/14.png)
+![img](https://github.com/ZMizgalski/Example-Data-Share-Angular/blob/main/imgs/15.png)
 
 ## Technologies Used
 - JWT tokens
