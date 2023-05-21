@@ -1,0 +1,71 @@
+::ng-deep mat-paginator {
+    margin-top: auto;
+    padding: 10px;
+
+    .mat-mdc-paginator-container {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+}
+
+.admin-panel-container {
+    display: flex;
+    min-height: calc(100dvh - 64px);
+    width: 100%;
+    justify-content: center;
+    flex-direction: column;
+    background: transparent;
+
+    &-wrapper {
+        display: flex;
+        flex: auto;
+
+        &__add-user {
+            width: 120px;
+            align-self: center;
+            margin: 20px;
+        }
+
+        .files-container {
+            flex: auto;
+            background: transparent;
+            box-shadow: none;
+
+            table {
+                border-collapse: collapse;
+            }
+
+            &-action {
+                &__clear-button {
+                    mat-icon {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        text-align: center;
+                        margin: auto;
+                    }
+                }
+
+                &__download-button {
+                    white-space: normal;
+                    word-wrap: break-word;
+                    width: auto;
+                }
+            }
+
+            .table-data-not-found {
+                display: flex;
+                flex-direction: column;
+                min-height: 25dvh;
+                flex-wrap: nowrap;
+                justify-content: center;
+                align-items: center;
+
+                mat-icon {
+                    margin: 20px;
+                }
+            }
+        }
+    }
+}

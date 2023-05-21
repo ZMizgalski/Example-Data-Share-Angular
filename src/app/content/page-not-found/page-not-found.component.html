@@ -1,0 +1,19 @@
+<mat-card class="main-header">
+    <mat-card-title
+        class="main-header-title"
+        [class.main-header-title-mobile]="responsiveService.isHandset | async"
+    >4 0 4</mat-card-title>
+
+    <mat-card-subtitle
+        class="main-header-subtitle"
+        [class.main-header-subtitle-mobile]="responsiveService.isHandset | async"
+    >Page not found!</mat-card-subtitle>
+
+    <button
+        class="main-header__button"
+        [class.main-header__button-mobile]="responsiveService.isHandset | async"
+        [routerLink]="['/login']"
+        mat-raised-button
+        color="primary"
+    >Return to home</button>
+</mat-card>

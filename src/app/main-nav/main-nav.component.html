@@ -1,0 +1,128 @@
+<ng-template #navListNormal let-route>
+  <a
+      *ngIf="!route.showOnMobile"
+      (click)="route.onAction?.()"
+      [routerLink]="route.route
+          ? route.route.params
+              ? [ route.route.path, id ]
+              : [ route.route.path ]
+          : null"
+      class="list-item"
+      mat-list-item
+  >{{route.routeName}}</a>
+</ng-template>
+
+<ng-template #navListMobile let-route>
+    <a
+        (click)="drawer.toggle(); route.onAction?.()"
+        [routerLink]="route.route
+        ? route.route.params
+            ? [ route.route.path, id ]
+            : [ route.route.path ]
+        : null"
+        class="list-item"
+        mat-list-item
+    >{{route.routeName}}</a>
+</ng-template>
+
+<ng-template #userToRouteMobile let-route>
+    <a
+        class="list-item"
+        mat-list-item
+        (click)="drawer.toggle()"
+        [routerLink]="['/content', route.id]"
+    >{{route.name}}</a>
+</ng-template>
+
+<ng-template #userToRouteNormal let-route>
+    <a
+        class="list-item"
+        mat-list-item
+        [routerLink]="['/content', route.id]"
+    >{{route.name}}</a>
+</ng-template>
+
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport
+        [attr.role]="(responsiveService.isHandset | async) ? 'dialog' : 'navigation'"
+        [mode]="(responsiveService.isHandset | async) ? 'over' : 'side'"
+        [opened]="!(responsiveService.isHandset | async)"
+    >
+        <mat-toolbar color="primary" class="toolbar">Menu</mat-toolbar>
+
+        <mat-card
+            *ngIf="showLoader | async"
+            class="spinner-container"
+        >
+            <mat-spinner color="warn"></mat-spinner>
+        </mat-card>
+
+        <span class="nav-list-container" *ngIf="!(showLoader | async)">
+            <mat-nav-list>
+                <span *ngIf="tokenService.authorizationToken">
+                    <ng-container *ngFor="let route of routes">
+                        <ng-container *ngIf="tokenService.hasRoles(route.roles)">
+                            <ng-container
+                                *ngTemplateOutlet="(responsiveService.isHandset | async)
+                                    ? navListMobile
+                                    : navListNormal;
+                                    context: { $implicit: route }"
+                            ></ng-container>
+                        </ng-container>
+                    </ng-container>
+                </span>
+
+                <span *ngIf="!tokenService.authorizationToken">
+                    <a
+                        mat-list-item
+                        (click)="drawer.toggle()"
+                        *ngIf="(responsiveService.isHandset | async)"
+                        [routerLink]="['/login']"
+                        class="list-item"
+                    >Login</a>
+
+                    <span *ngFor="let route of usersToRoute; let i = count">
+                        <ng-container
+                            *ngTemplateOutlet="(responsiveService.isHandset | async)
+                                ? userToRouteMobile
+                                : userToRouteNormal;
+                                context: { $implicit: route }"
+                        ></ng-container>
+                    </span>
+                </span>
+            </mat-nav-list>
+        </span>
+    </mat-sidenav>
+
+    <mat-sidenav-content class="sidenav-content">
+        <mat-toolbar class="toolbar" color="primary">
+            <button
+                class="toolbar__menu-button"
+                aria-label="Toggle sidenav"
+                mat-icon-button
+                color="accent"
+                (click)="drawer.toggle()"
+                *ngIf="responsiveService.isHandset | async"
+            >
+                <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+            </button>
+
+            <span class="toolbar-mobile-spacer" *ngIf="(responsiveService.isHandset | async)"></span>
+            <span class="toolbar__title">File share</span>
+
+            <button
+                mat-button
+                *ngIf="!(responsiveService.isHandset | async) && !tokenService.authorizationToken"
+                [routerLink]="['/login']"
+            >Login</button>
+
+            <button
+                mat-button
+                *ngIf="!(responsiveService.isHandset | async) && tokenService.authorizationToken"
+                (click)="logout()"
+            >Logout</button>
+        </mat-toolbar>
+
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

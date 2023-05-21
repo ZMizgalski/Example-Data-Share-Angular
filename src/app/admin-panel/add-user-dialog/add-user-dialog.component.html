@@ -1,0 +1,70 @@
+<h2 mat-dialog-title>Add user</h2>
+
+<mat-dialog-content class="dialog-content" [formGroup]="registerForm">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="dialog-content-form">
+        <mat-form-field appearance="outline" class="dialog-content-form__field">
+            <label for="registerEmail"></label>
+            <input
+                formControlName="email"
+                id="registerEmail"
+                matInput
+                name="email"
+                placeholder="Email"
+                required
+                type="email"
+            >
+            <mat-error>
+                <span *ngIf="!registerForm?.get('email')?.valid && registerForm?.get('email')?.touched">Wrong email</span>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="dialog-content-form__field">
+            <label for="registerUsername"></label>
+            <input
+                formControlName="username"
+                required
+                name="username"
+                type="text"
+                id="registerUsername"
+                matInput
+                placeholder="Nazwa użytkownika"
+            >
+            <mat-error>
+                <span *ngIf="!registerForm?.get('username')?.valid && registerForm?.get('username')?.touched">Wrong username</span>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="dialog-content-form__field">
+            <label for="registerPassword"></label>
+            <input
+              formControlName="password"
+              required
+              name="password"
+              type="password"
+              id="registerPassword"
+              matInput
+              placeholder="Hasło">
+            <mat-error>
+                  <span *ngIf="!registerForm?.get('password')?.valid && registerForm?.get('password')?.touched">Wrong password</span>
+            </mat-error>
+        </mat-form-field>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions class="dialog-actions">
+    <button
+        class="dialog-actions__button"
+        [disabled]="showLoader | async"
+        (click)="onSubmit()"
+        mat-raised-button
+        color="primary"
+    >Add</button>
+
+    <button
+        class="dialog-actions__button"
+        [disabled]="showLoader | async"
+        (click)="dialog.close(false)"
+        mat-raised-button
+        color="warn"
+    >Close</button>
+</mat-dialog-actions>

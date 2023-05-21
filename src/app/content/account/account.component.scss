@@ -1,0 +1,69 @@
+.account-container {
+    background: transparent;
+    box-shadow: none;
+    display: flex;
+    min-height: calc(100dvh - 64px);
+    justify-content: center;
+    align-items: center;
+
+    &-wrapper {
+        background: transparent;
+        width: 80%;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        min-width: 200px;
+        padding: 20px !important;
+        border-radius: 5px !important;
+        box-shadow: none;
+        text-align: center;
+
+        .account-info-container {
+            width: 100%;
+            background: transparent;
+            box-shadow: none;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            padding: 10px !important;
+            align-items: center;
+            justify-content: center;
+
+            &__title {
+                padding: 10px;
+            }
+
+            &__subtitle {
+                padding: 10px;
+            }
+        }
+
+        .account-description-container {
+            background: transparent;
+            box-shadow: none;
+            display: flex;
+            justify-items: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+
+            &__title {
+                padding: 10px;
+            }
+
+            &__button {
+                width: 30%;
+                min-width: 100px;
+            }
+
+            &-content {
+                margin: 20px !important;
+                width: 100%;
+                padding: 10px !important;
+                border-radius: 5px !important;
+                min-height: 100px;
+                word-break: break-word;
+            }
+        }
+    }
+}

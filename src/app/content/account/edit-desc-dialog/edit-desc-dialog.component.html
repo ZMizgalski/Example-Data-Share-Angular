@@ -1,0 +1,37 @@
+<h2 mat-dialog-title>Change Description</h2>
+
+<mat-dialog-content class="dialog-content" [formGroup]="registerForm">
+    <mat-form-field class="dialog-content__form-field" appearance="outline">
+        <label for="content"></label>
+        <textarea
+              #message
+              [maxlength]="750"
+              cdkTextareaAutosize
+              formControlName="content"
+              id="content"
+              matInput
+              name="username"
+              placeholder="Opis"
+              required
+              type="text"
+        ></textarea>
+        <mat-hint align="end">{{message.value.length}} / 750</mat-hint>
+    </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions class="dialog-actions">
+    <button
+        [disabled]="(showLoader | async) || !content?.id || registerForm.invalid"
+        (click)="onSubmit()"
+        color="primary"
+        mat-raised-button
+    >Save</button>
+
+    <button
+        [disabled]="(showLoader | async)"
+        color="warn"
+        type="button"
+        (click)="editDescDialog.close(false)"
+        mat-raised-button
+    >Close</button>
+</mat-dialog-actions>

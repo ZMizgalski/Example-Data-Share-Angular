@@ -1,1 +1,111 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$mat-theme-primary-palette: map-merge(mat.$blue-palette, ( 701: #1587f7,contrast: (100: #000000,)));
+$mat-theme-primary: mat.define-palette(
+  $mat-theme-primary-palette,
+  $default: 100,
+  $lighter: 100,
+  $darker: 701,
+  $text: 500
+);
+
+$mat-theme-accent-palette: map-merge(mat.$blue-palette, ( 501: #4d77b6,201: #87a7de,601: #9ecce0,contrast: (501: white,A200: white,)));
+$mat-theme-accent: mat.define-palette(
+  $mat-theme-accent-palette,
+  $default: 501,
+  $lighter: 201,
+  $darker: A200,
+  $text: 601
+);
+
+$mat-theme-warn-palette: map-merge(mat.$pink-palette, ( 501: #ab9ba0,201: #ada3a6,701: #b1b4c6,601: #1b1a1b,));
+$mat-theme-warn: mat.define-palette(
+  $mat-theme-warn-palette,
+  $default: 501,
+  $lighter: 201,
+  $darker: 701,
+  $text: 601
+);
+
+$mat-dark-theme-primary-palette: map-merge(mat.$blue-palette, ( 701: #7e2bf1,contrast: (200: #030844,A100: rgba(0,0,0, 0.87),)));
+$mat-dark-theme-primary: mat.define-palette(
+  $mat-dark-theme-primary-palette,
+  $default: 200,
+  $lighter: A100,
+  $darker: 701,
+  $text: 700
+);
+
+$mat-dark-theme-accent-palette: map-merge(mat.$green-palette, ( contrast: (A200: black,50: black,A400: black,)));
+$mat-dark-theme-accent: mat.define-palette(
+  $mat-dark-theme-accent-palette,
+  $default: A200,
+  $lighter: 50,
+  $darker: A400,
+  $text: A100
+);
+
+$mat-dark-theme-warn-palette: map-merge(mat.$pink-palette, ( contrast: (A100: black,100: white,)));
+$mat-dark-theme-warn: mat.define-palette(
+  $mat-dark-theme-warn-palette,
+  $default: A100,
+  $lighter: 100,
+  $darker: A700,
+  $text: 100
+);
+
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@400&family=Rubik:wght@500&display=swap');
+
+$mat-typography: mat.define-typography-config(
+  $font-family: 'Hind',
+  $headline-1:     mat.define-typography-level($font-size: 96px, $font-weight: regular, $font-family: Hind),
+  $headline-2:     mat.define-typography-level($font-size: 60px, $font-weight: 500, $font-family: Rubik),
+  $headline-3:     mat.define-typography-level($font-size: 48px, $font-weight: 500, $font-family: Rubik),
+  $headline-4:     mat.define-typography-level($font-size: 34px, $font-weight: 500, $font-family: Rubik),
+  $headline-5:      mat.define-typography-level($font-size: 24px, $font-weight: 500, $font-family: Rubik),
+  $headline-6:         mat.define-typography-level($font-size: 20px, $font-weight: 500, $font-family: Rubik),
+  $subtitle-1:  mat.define-typography-level($font-size: 18px, $font-weight: 500, $font-family: Rubik),
+  $subtitle-2:  mat.define-typography-level($font-size: 20px, $font-weight: 500, $font-family: Rubik),
+  $body-2:        mat.define-typography-level($font-size: 16px, $font-weight: 400, $font-family: Rubik),
+  $body-1:        mat.define-typography-level($font-size: 18px, $font-weight: 400, $font-family: Rubik),
+  $caption:       mat.define-typography-level($font-size: 16px, $font-weight: Medium, $font-family: Rubik),
+  $button:        mat.define-typography-level($font-size: 16px, $font-weight: 500, $font-family: Rubik),
+  $overline:         mat.define-typography-level($font-size: inherit, $line-height: 1.125, $font-weight: 500, $font-family: Rubik),
+);
+
+$mat-density: 0;
+
+$mat-core-theme: mat.define-light-theme((
+  color: (
+    primary: $mat-theme-primary,
+    accent: $mat-theme-accent,
+    warn: $mat-theme-warn
+  ),
+  typography: $mat-typography,
+  density: $mat-density
+));
+
+$mat-dark-theme: mat.define-dark-theme((
+  color: (
+    primary: $mat-dark-theme-primary,
+    accent: $mat-dark-theme-accent,
+    warn: $mat-dark-theme-warn,
+  )
+));
+
+@include mat.all-component-themes($mat-core-theme);
+
+.mat-drawer-side {
+    border-right: none;
+}
+
+html, body { height: 100%; }
+body { margin: 0 }
+
+mat-card {
+  border-radius: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}

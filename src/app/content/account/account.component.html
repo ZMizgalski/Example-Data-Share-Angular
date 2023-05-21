@@ -1,0 +1,26 @@
+<mat-card class="account-container">
+    <mat-spinner *ngIf="showLoader | async" color="primary"></mat-spinner>
+
+    <mat-card *ngIf="!(showLoader | async)" class="account-container-wrapper">
+        <mat-card-title>Profile</mat-card-title>
+
+        <mat-card class="account-info-container">
+            <mat-card-title class="account-info-container__title">Username: {{ content?.name }}</mat-card-title>
+            <mat-card-subtitle class="account-info-container__subtitle">Email: {{ jwtToken?.email }}</mat-card-subtitle>
+
+            <mat-card class="account-description-container">
+                <mat-card-title class="account-description-container__title">Description</mat-card-title>
+
+                <button
+                    class="account-description-container__button"
+                    color="primary"
+                    [disabled]="tokenService.hasRole('ROLE_ADMIN')"
+                    (click)="editDescription()"
+                    mat-raised-button
+                >Edit</button>
+
+                <mat-card class="account-description-container-content">{{ content?.content }}</mat-card>
+            </mat-card>
+        </mat-card>
+    </mat-card>
+</mat-card>

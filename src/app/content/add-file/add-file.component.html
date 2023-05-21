@@ -1,0 +1,57 @@
+<mat-card class="add-file-container">
+    <mat-card class="add-file-container-wrapper">
+        <mat-card
+            class="dropbox-container"
+            appDnd
+            (fileDropped)="prepareFilesList($event)"
+        >
+            <mat-card-title class="dropbox-container__title-1">Drag and drop</mat-card-title>
+
+            <mat-card-title class="dropbox-container__title-2">or</mat-card-title>
+
+            <button
+                class="dropbox-container__button"
+                color="primary"
+                mat-raised-button
+                (click)="fileInput.click()"
+            >Choose Files</button>
+            <input
+                hidden
+                type="file"
+                #fileInput
+                id="fileDropRef"
+                multiple
+                (change)="fileBrowseHandler($event)"
+            >
+
+        </mat-card>
+
+        <mat-card class="files-container" *ngFor="let file of paginatedFiles; let i = index">
+            <mat-card class="files-container-wrapper">
+                <mat-card-title class="files-container-wrapper__title">{{ file.file.name }}</mat-card-title>
+                <button
+                    (click)="deleteFile(i)"
+                    mat-icon-button
+                >
+                    <mat-icon>clear</mat-icon>
+                </button>
+            </mat-card>
+
+            <mat-progress-bar
+                [color]="color(file)"
+                [value]="file?.progress ?? 0"
+            ></mat-progress-bar>
+        </mat-card>
+    </mat-card>
+</mat-card>
+
+<mat-paginator
+    [disabled]="paginatedFiles.length === 0"
+    [class]="(responsiveService.isHandset | async) ? 'paginator-column' : 'paginator'"
+    (page)="handlePageEvent($event)"
+    [length]="files.getValue()?.length ?? 0"
+    [pageSizeOptions]="[ 5, 10, 15 ]"
+    [pageSize]="pageSize"
+    [pageIndex]="pageIndex"
+    aria-label="Select page"
+></mat-paginator>

@@ -1,0 +1,102 @@
+:host {
+    height: 100%;
+}
+
+::ng-deep mat-paginator {
+    padding: 10px;
+
+    .mat-mdc-paginator-container {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+}
+
+.loader-container {
+    display: flex;
+    height: 100dvh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+}
+
+.main-container {
+    margin: auto;
+    display: flex;
+    background: transparent;
+    box-shadow: none;
+    flex-direction: column;
+
+    .description-container {
+        min-height: calc(100dvh - 64px);
+        background: transparent;
+        box-shadow: none;
+        display: flex;
+
+        &__title-1 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 10dvh;
+        }
+
+        &__title-2 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 10dvh;
+        }
+
+        &__content {
+            box-shadow: none;
+            background: transparent;
+            width: 50%;
+            margin: auto !important;
+            word-break: break-word;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+
+.files-container {
+    &-action {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &__clear-button {
+            mat-icon {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                margin: auto;
+            }
+        }
+
+        &__download-button {
+            white-space: normal;
+            word-wrap: break-word;
+            width: auto;
+        }
+    }
+
+    .table-data-not-found {
+        display: flex;
+        flex-direction: column;
+        min-height: 25dvh;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+
+        mat-icon {
+            padding: 20px;
+        }
+    }
+}

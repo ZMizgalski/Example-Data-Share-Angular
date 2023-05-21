@@ -1,0 +1,69 @@
+<mat-card class="login-container">
+    <mat-card class="login-container-data">
+        <mat-card-title class="login-container-data__title">Login</mat-card-title>
+        <form
+            class="login-container-data-form"
+            (ngSubmit)="onSubmit()"
+            [formGroup]="registerForm"
+        >
+            <mat-form-field appearance="outline">
+                <label for="username"></label>
+                <input
+                    formControlName="username"
+                    id="username"
+                    matInput
+                    name="username"
+                    placeholder="Nazwa użytkownika"
+                    required
+                    type="text"
+                >
+                <mat-error>
+                    <span
+                        class="login-container-data-form__error-text"
+                        *ngIf="!registerForm?.get('username')?.valid && registerForm?.get('username')?.touched"
+                    >Invalid username</span>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <label for="password"></label>
+                <input
+                    formControlName="password"
+                    id="password"
+                    name="password"
+                    placeholder="Hasło"
+                    matInput
+                    required
+                    type="password"
+                >
+                <mat-error>
+                    <span
+                        *ngIf="!registerForm?.get('username')?.valid && registerForm?.get('username')?.touched"
+                        class="login-container-data-form__error-text"
+                    >Invalid password</span>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-checkbox
+                class="login-container-data-form__remember"
+                color="accent"
+                id="remember"
+                name="remember"
+                formControlName="remember"
+            >Remember me</mat-checkbox>
+
+            <mat-card-title>
+                <a
+                    [routerLink]="['/reset-password']"
+                    routerLinkActive="active"
+                >Forgot password</a>
+            </mat-card-title>
+
+            <button
+                color="primary"
+                [disabled]="!registerForm.valid"
+                mat-raised-button
+            >Login</button>
+        </form>
+    </mat-card>
+</mat-card>
